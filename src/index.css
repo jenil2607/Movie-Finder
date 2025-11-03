@@ -1,0 +1,272 @@
+/* ===================== GLOBAL STYLES ===================== */
+/* Universal reset and font setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body background and text color */
+body {
+  background-color: #0d0d0d;
+  color: white;
+}
+
+/* ===================== NAVBAR (HEADER) ===================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0d0d0d;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80px;
+  padding-left: 5rem;
+  /* background-color: white; */
+}
+
+.heading {
+  margin-right: 30px;
+  color: red;
+}
+
+/* Search bar styling */
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px 15px;
+  border: 2px solid #ffc107;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  width: 300px;
+}
+
+.search-bar button {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background-color: #ffca2c;
+}
+
+/* ===================== MAIN MOVIE SECTION ===================== */
+
+/* Main container below navbar */
+.movie-content {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Movie grid + side panel layout */
+.movie-browser {
+  display: flex;
+  width: 100%;
+  max-width: 1140px;
+  justify-content: center;
+}
+
+/* Movie cards grid */
+.movie-grid {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===================== MOVIE CARD ===================== */
+.movie-card {
+  background-color: #1a1a1a;
+  border: 2px solid #e8ddb2;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover animation */
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+}
+
+/* Movie poster */
+.movie-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Movie title */
+.movie-card h3 {
+  font-size: 1.2rem;
+  margin-top: 0.8rem;
+  color: #ffcc00;
+}
+
+/* Movie year or genre */
+.movie-card p {
+  font-size: 0.9rem;
+  color: #bbbbbb;
+}
+
+/* ===================== STATUS TEXT ===================== */
+.status {
+  font-size: 1.2rem;
+  color: #ffcc00;
+}
+
+.status.error {
+  color: #ff4444;
+}
+
+/* ===================== SIDE PANEL ===================== */
+/* Movie details on the right */
+.side-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 380px;
+  height: 100vh;
+  background-color: #181818;
+  color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Side panel image */
+.side-panel img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Side panel movie title */
+.side-panel h2 {
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+}
+
+/* Side panel description */
+.side-panel p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Close button */
+.side-panel button {
+  display: block;
+  width: 100%;
+  background-color: #ffcc00;
+  color: #121212;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.side-panel button:hover {
+  background-color: #ffaa00;
+  transform: scale(1.03);
+}
+
+/* ===================== CUSTOM SCROLLBAR ===================== */
+.side-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.side-panel::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+/* ------------------ SKELETON LOADER ------------------ */
+.movie-card.loader {
+  background-color: #1a1a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Grey animated placeholder for poster */
+.poster-skeleton {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: loading 1.5s infinite;
+}
+
+/* Grey bars for text */
+.title-skeleton,
+.year-skeleton {
+  height: 15px;
+  background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  margin-top: 12px;
+  animation: loading 1.5s infinite;
+}
+
+.title-skeleton {
+  width: 60%;
+}
+
+.year-skeleton {
+  width: 40%;
+}
+
+/* Animation effect */
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
